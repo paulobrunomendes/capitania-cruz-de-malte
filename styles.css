@@ -55,6 +55,13 @@ nav.scrolled {
   color: var(--white);
   text-decoration: none;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav-icon {
+  height: 1.2rem;
+  width: auto;
 }
 .nav-links {
   display: flex;
@@ -72,6 +79,25 @@ nav.scrolled {
   transition: color 0.3s;
 }
 .nav-links a:hover { color: var(--white); }
+
+.nav-faça-parte-btn {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  text-decoration: none;
+  border: 1px solid var(--crimson);
+  padding: 0.35rem 0.7rem;
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+.nav-faça-parte-btn:hover {
+  background: var(--crimson);
+  color: var(--white);
+}
 
 /* Mobile nav */
 .nav-toggle {
@@ -112,6 +138,17 @@ nav.scrolled {
   transition: color 0.3s;
 }
 .mobile-menu a:hover { color: var(--crimson); }
+
+.mobile-faça-parte {
+  border: 1px solid var(--crimson) !important;
+  padding: 0.8rem 1.5rem !important;
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+.mobile-faça-parte:hover {
+  background: var(--crimson) !important;
+  color: var(--white) !important;
+}
 
 @media (max-width: 768px) {
   nav { padding: 1.25rem 1.5rem; }
@@ -291,6 +328,72 @@ section {
   margin-bottom: 1.5rem;
 }
 .historia-text:last-child { margin-bottom: 0; }
+
+/* ── NOSSOS SÓCIOS ── */
+#socios { background: var(--gray-1); }
+#socios .container-narrow { text-align: center; }
+#socios .section-rule { margin-left: auto; margin-right: auto; }
+.title-icon {
+  height: 1.2em;
+  width: auto;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  display: inline-block;
+}
+.socios-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.socio-item {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgba(245,242,238,0.9);
+  padding: 1.5rem;
+  border: 1px solid rgba(139,26,26,0.3);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+.socio-nome {
+  text-align: center;
+}
+.socio-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.socio-item:hover {
+  border-color: var(--crimson);
+  background: rgba(139,26,26,0.05);
+  transform: translateY(-2px);
+}
+.tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+  margin-right: 0.5rem;
+}
+.tag-adm {
+  background: rgba(201,42,42,0.2);
+  color: var(--crimson-light);
+  border: 1px solid var(--crimson-light);
+}
+.tag-capitao {
+  background: rgba(139,26,26,0.3);
+  color: var(--crimson);
+  border: 1px solid var(--crimson);
+}
 
 /* ── FOTOS ── */
 #fotos { background: var(--black); }
