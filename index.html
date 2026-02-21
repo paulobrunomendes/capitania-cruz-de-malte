@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capitania Cruz de Malte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="#home" class="nav-logo">Capitania Cruz de Malte Miracema</a>
+    <ul class="nav-links">
+      <li><a href="#home">Início</a></li>
+      <li><a href="#historia">História</a></li>
+      <li><a href="#fotos">Fotos</a></li>
+      <li><a href="#redes">Redes</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="closeMobile()">Início</a>
+    <a href="#historia" onclick="closeMobile()">História</a>
+    <a href="#fotos" onclick="closeMobile()">Fotos</a>
+    <a href="#redes" onclick="closeMobile()">Redes</a>
+    <a href="#contato" onclick="closeMobile()">Contato</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-eyebrow">Fundada com paixão — erguida com honra</div>
+    <h1 class="hero-title">Capitania Cruz de Malte<br><em>Miracema</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">1ª Capitania Oficial do Clube de Regatas Vasco da Gama no Estado do Rio de Janeiro</p>
+    <a href="#historia" class="hero-cta">Conheça nossa história</a>
+    <div class="hero-scroll">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- HISTÓRIA -->
+  <section id="historia">
+    <div class="container-narrow reveal">
+      <p class="section-label">Nossa história</p>
+      <h2 class="section-title">O início</h2>
+      <div class="section-rule center"></div>
+      <p class="historia-text">
+        A Capitania Vasco da Gama foi fundada por um grupo de apaixonados pelo Gigante da Colina. 
+        Nossa história começa nas arquibancadas de São Januário, onde a paixão pelo futebol e a 
+        admiração pela tradição vascaína nos uniram. Como os navegadores portugueses que deram 
+        nome ao nosso clube, seguimos com coragem e determinação.
+      </p>
+      <p class="historia-text">
+        Ao longo dos anos, nossa capitania cresceu e se fortaleceu, sempre mantendo vivos os valores 
+        de inclusão, democracia e luta social que fazem do Vasco da Gama um clube único. 
+        Somos a Cruz de Malta, somos resistência, somos Vasco.
+      </p>
+    </div>
+  </section>
+
+  <!-- EVENTOS -->
+  <section id="fotos">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Galeria</p>
+        <h2 class="section-title">Fotos</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <!-- Galeria: adicione imagens manualmente no HTML dentro de #gallery -->
+
+      <div id="gallery" class="galeria-grid reveal" aria-live="polite">
+        <!-- Imagens fornecidas como anexos: salve-as em images/group.jpg e images/logos.jpg -->
+        <div class="galeria-item"><img src="images/group.jpg" alt="Capitania Cruz de Malte - grupo" onclick="openLightbox(this.src, this.alt)"></div>
+        <div class="galeria-item"><img src="images/logos.jpg" alt="Escudos e logos do Vasco" onclick="openLightbox(this.src, this.alt)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REDES -->
+  <section id="redes">
+    <div class="container reveal">
+      <p class="section-label">Siga-nos</p>
+      <h2 class="section-title">Redes sociais</h2>
+      <div class="section-rule center"></div>
+      <p style="font-family:var(--sans);font-size:0.8rem;color:var(--gray-4);font-weight:300;">
+        Acompanhe a Capitania Cruz de Malte nas nossas redes sociais.
+      </p>
+      <div class="redes-grid">
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/capitania.cruzdemalte/" target="_blank" rel="noopener noreferrer" class="rede-link">
+          <div class="rede-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+          </div>
+          <span class="rede-name">Instagram</span>
+        </a>
+
+        <!-- YouTube -->
+        <a href="https://youtube.com/capitania" target="_blank" rel="noopener noreferrer" class="rede-link">
+          <div class="rede-icon">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <span class="rede-name">YouTube</span>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/5521999999999" target="_blank" rel="noopener noreferrer" class="rede-link">
+          <div class="rede-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <span class="rede-name">WhatsApp</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Fale conosco</p>
+        <h2 class="section-title">Contato</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="contato-grid">
+        <!-- Info -->
+        <div class="reveal">
+          <div class="contato-info-item">
+            <div class="contato-info-label">Email</div>
+            <div class="contato-info-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a2c1cdccd6c3d6cde2c1c3d2cbd6c3cccbc3d4c3d1c1cdc6c3c5c3cfc38cc1cdcf8cc0d0">cruzdemaltemiracema@gmail.com </a></div>
+          </div>
+          <div class="contato-info-item">
+            <div class="contato-info-label">Telefone</div>
+            <div class="contato-info-value">+55 (22) 99722-5151</div>
+          </div>
+          <div class="contato-info-item">
+            <div class="contato-info-label">Endereço</div>
+            <div class="contato-info-value">Avenida Deputado Luiz Fernando Linhares 783<br>Miracema, RJ</div>
+          </div>
+          <div class="contato-info-item">
+            <div class="contato-info-label">Horário</div>
+            <div class="contato-info-value">Dias de jogos do Vascão<br>Sempre duas horas antes do horario do jogo</div>
+          </div>
+        </div>
+        <!-- Form -->
+        <div class="reveal">
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label class="form-label">Nome</label>
+              <input type="text" class="form-input" placeholder="Seu nome completo" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-input" placeholder="seu@email.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mensagem</label>
+              <textarea class="form-textarea" placeholder="Sua mensagem..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit">
+              Enviar mensagem
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Capitania Cruz de Malte Miracema</div>
+    <div class="footer-motto">1ª Capitania Oficial do Clube de Regatas Vasco da Gama no Estado do Rio de Janeiro</div>
+    <div class="footer-copy">© 2025 Capitania Cruz de Malte Miracema. Todos os direitos reservados.</div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile menu
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    navToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+    }
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Form submit
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = 'Mensagem enviada!';
+      btn.style.background = 'var(--crimson)';
+      btn.style.borderColor = 'var(--crimson)';
+      btn.style.color = 'var(--white)';
+      setTimeout(() => {
+        e.target.reset();
+        btn.innerHTML = 'Enviar mensagem <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+        btn.style.background = '';
+        btn.style.borderColor = '';
+        btn.style.color = '';
+      }, 2000);
+    }
+    </script>
+    <script>
+      // Smooth scroll for in-page anchors with navbar offset
+      (function() {
+        const links = document.querySelectorAll('a[href^="#"]');
+        const navbar = document.getElementById('navbar');
+        links.forEach(link => {
+          link.addEventListener('click', function(e) {
+            const hash = this.getAttribute('href');
+            if (!hash || hash === '#') return;
+            const target = document.querySelector(hash);
+            if (!target) return;
+            e.preventDefault();
+            const navH = navbar ? navbar.offsetHeight : 0;
+            const top = target.getBoundingClientRect().top + window.scrollY - navH - 12;
+            window.scrollTo({ top, behavior: 'smooth' });
+            const mobile = document.getElementById('mobileMenu');
+            if (mobile && mobile.classList.contains('open')) mobile.classList.remove('open');
+            history.replaceState(null, '', hash);
+          });
+        });
+      })();
+    </script>
+    <script>
+      // Fallback: ensure reveals are visible if IntersectionObserver failed
+      window.addEventListener('load', () => {
+        try {
+          const reveals = document.querySelectorAll('.reveal');
+          reveals.forEach(el => el.classList.add('visible'));
+        } catch (e) {
+          // ignore
+        }
+      });
+    </script>
+    <!-- Upload removed: images should be added directly into the #gallery element in the HTML -->
+
+    <!-- Lightbox element -->
+    <div id="lightbox" class="modal-overlay" aria-hidden="true">
+      <img id="lightboxImg" class="modal-img" src="" alt="" />
+      <button id="lightboxClose" class="modal-close" aria-label="Fechar">×</button>
+    </div>
+
+    <script>
+      // Lightbox controls
+      (function(){
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightboxImg');
+        const lbClose = document.getElementById('lightboxClose');
+        function openLightbox(src, alt) {
+          lbImg.src = src;
+          lbImg.alt = alt || '';
+          lb.classList.add('open');
+          lb.setAttribute('aria-hidden', 'false');
+        }
+        function closeLightbox() {
+          lb.classList.remove('open');
+          lb.setAttribute('aria-hidden', 'true');
+          lbImg.src = '';
+        }
+        window.openLightbox = openLightbox;
+        lbClose.addEventListener('click', closeLightbox);
+        lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+      })();
+    </script>
+
+  </body>
+</html>
