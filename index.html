@@ -92,11 +92,16 @@
         <div class="socio-item">Nasser Mansur <span class="tag tag-adm">ADM</span></div>
         <div class="socio-item">Maycon Carrielo <span class="tag tag-adm">ADM</span></div>
         <div class="socio-item">José Carlos Vieira <span class="tag tag-adm">ADM</span></div>
-        <div class="socio-item">Gean Sat <span class="tag tag-adm">ADM</span></div>
+        <div class="socio-item">Gean Nunes <span class="tag tag-adm">ADM</span></div>
         <div class="socio-item">Douglas Santos <span class="tag tag-adm">ADM</span></div>
         <div class="socio-item">Roger Rabelo <span class="tag tag-adm">ADM</span></div>
         <div class="socio-item">Yuri Alvim <span class="tag tag-adm">ADM</span></div>
-        <div class="socio-item">Chacour <span class=></span></div>
+        <div class="socio-item">Chacour<span class="tag tag-adm">Sócio</span></div>
+        <div class="socio-item">Eric<span class="tag tag-adm">Sócio</span></div>
+        <div class="socio-item">Flávio<span class="tag tag-adm">Sócio</span></div>
+        <div class="socio-item">Grilo<span class="tag tag-adm">Sócio</span></div>
+        <div class="socio-item">Marcelo<span class="tag tag-adm">Sócio</span></div>
+        <div class="socio-item"><span class="tag tag-adm">Sócio</span></div>
       </div>
     </div>
   </section>
@@ -110,23 +115,21 @@
         <div class="section-rule"></div>
       </div>
 
-      <!-- Galeria: adicione imagens manualmente no HTML dentro de #gallery -->
-
-      <div id="gallery" class="galeria-grid reveal" aria-live="polite">
+      <div id="gallery" class="galeria-grid reveal">
         <div class="galeria-item"><img src="images/group.jpg" alt="Capitania Cruz de Malte - grupo"
-            onclick="openLightbox(this.src, this.alt)"></div>
-        <div class="galeria-item"><img src="images/logos.jpg" alt="Escudos e logos do Vasco"
-            onclick="openLightbox(this.src, this.alt)"></div>
+            onclick="openLightbox(0)"></div>
+        <div class="galeria-item"><img src="images/logos.jpg" alt="Escudos e logos do Vasco" onclick="openLightbox(1)">
+        </div>
         <div class="galeria-item"><img src="images/a53e604b-bcae-481f-8658-642f8f437916.jfif"
-            alt="Capitania Cruz de Malte" onclick="openLightbox(this.src, this.alt)"></div>
+            alt="Capitania Cruz de Malte" onclick="openLightbox(2)"></div>
         <div class="galeria-item"><img src="images/d77fac18-245d-406e-b51b-029b3c4e514a.jfif"
-            alt="Capitania Cruz de Malte" onclick="openLightbox(this.src, this.alt)"></div>
+            alt="Capitania Cruz de Malte" onclick="openLightbox(3)"></div>
         <div class="galeria-item"><img src="images/134c6b72-6914-4aae-bb86-70b94efa2033.jfif"
-            alt="Capitania Cruz de Malte" onclick="openLightbox(this.src, this.alt)"></div>
+            alt="Capitania Cruz de Malte" onclick="openLightbox(4)"></div>
         <div class="galeria-item"><img src="images/c78826a4-b1b5-4975-ae56-624547c23dbb.jpg"
-            alt="Capitania Cruz de Malte" onclick="openLightbox(this.src, this.alt)"></div>
+            alt="Capitania Cruz de Malte" onclick="openLightbox(5)"></div>
         <div class="galeria-item"><img src="images/f843bfe1-a924-4817-952e-6745505b6827.jpg"
-            alt="Capitania Cruz de Malte" onclick="openLightbox(this.src, this.alt)"></div>
+            alt="Capitania Cruz de Malte" onclick="openLightbox(6)"></div>
       </div>
     </div>
   </section>
@@ -339,31 +342,80 @@
 
   <!-- Lightbox element -->
   <div id="lightbox" class="modal-overlay" aria-hidden="true">
+    <button id="lightboxPrev" class="modal-nav modal-prev" aria-label="Anterior">&#8592;</button>
     <img id="lightboxImg" class="modal-img" src="" alt="" />
+    <button id="lightboxNext" class="modal-nav modal-next" aria-label="Próximo">&#8594;</button>
     <button id="lightboxClose" class="modal-close" aria-label="Fechar">×</button>
   </div>
 
   <script>
-    // Lightbox controls
+    // Lightbox e Galeria
     (function () {
       const lb = document.getElementById('lightbox');
       const lbImg = document.getElementById('lightboxImg');
       const lbClose = document.getElementById('lightboxClose');
-      function openLightbox(src, alt) {
-        lbImg.src = src;
-        lbImg.alt = alt || '';
+      const lbPrev = document.getElementById('lightboxPrev');
+      const lbNext = document.getElementById('lightboxNext');
+
+      // Lista de imagens da galeria
+      const galleryImages = [
+        { src: 'images/group.jpg', alt: 'Capitania Cruz de Malte - grupo' },
+        { src: 'images/logos.jpg', alt: 'Escudos e logos do Vasco' },
+        { src: 'images/a53e604b-bcae-481f-8658-642f8f437916.jfif', alt: 'Capitania Cruz de Malte' },
+        { src: 'images/d77fac18-245d-406e-b51b-029b3c4e514a.jfif', alt: 'Capitania Cruz de Malte' },
+        { src: 'images/134c6b72-6914-4aae-bb86-70b94efa2033.jfif', alt: 'Capitania Cruz de Malte' },
+        { src: 'images/c78826a4-b1b5-4975-ae56-624547c23dbb.jpg', alt: 'Capitania Cruz de Malte' },
+        { src: 'images/f843bfe1-a924-4817-952e-6745505b6827.jpg', alt: 'Capitania Cruz de Malte' }
+      ];
+
+      let currentIndex = 0;
+
+      function openLightbox(index) {
+        currentIndex = index;
+        updateLightbox();
         lb.classList.add('open');
         lb.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; // Trava scroll
       }
+
       function closeLightbox() {
         lb.classList.remove('open');
         lb.setAttribute('aria-hidden', 'true');
         lbImg.src = '';
+        document.body.style.overflow = ''; // Destrava scroll
       }
+
+      function updateLightbox() {
+        const imgData = galleryImages[currentIndex];
+        lbImg.src = imgData.src;
+        lbImg.alt = imgData.alt;
+      }
+
+      function showNext() {
+        currentIndex = (currentIndex + 1) % galleryImages.length;
+        updateLightbox();
+      }
+
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+        updateLightbox();
+      }
+
+      // Exportar para o HTML
       window.openLightbox = openLightbox;
+
+      // Eventos
       lbClose.addEventListener('click', closeLightbox);
+      lbNext.addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
+      lbPrev.addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
       lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+      document.addEventListener('keydown', (e) => {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+      });
     })();
   </script>
 
